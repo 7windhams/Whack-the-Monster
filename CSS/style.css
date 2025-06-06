@@ -1,0 +1,118 @@
+body {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background-color: #222;
+  color: red;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+.scoreboard {
+  margin: 20px;
+  font-size: 1.2em;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+  background-color: #fbc02d;
+}
+
+.hole {
+  width: 100px;
+  height: 100px;
+  background-color: #444;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.monster {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transform: scale(0);
+  transition: transform 0.3s ease-in-out, background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.monster.show {
+  transform: scale(1);
+}
+
+/* Monster color changes by level */
+.monster.level-1 {
+  background-color: #c62828; /* red */
+}
+.monster.level-2 {
+  background-color: #388e3c; /* green */
+}
+.monster.level-3 {
+  background-color: #fbc02d; /* yellow */
+}
+.monster.level-4 {
+  background-color: #8e24aa; /* purple */
+}
+/* Add more as needed */
+
+/* Button color changes by level */
+.level-1-btn {
+  background-color: #c62828 !important;
+  color: #fff !important;
+}
+.level-2-btn {
+  background-color: #388e3c !important;
+  color: #fff !important;
+}
+.level-3-btn {
+  background-color: #fbc02d !important;
+  color: #222 !important;
+}
+.level-4-btn {
+  background-color: #8e24aa !important;
+  color: #fff !important;
+}
+/* Add more as needed */
+
+/* Optional: Monster face for fun */
+.monster-face {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 0 auto;
+}
+.monster-eye {
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 12px;
+}
+.monster-eye.left {
+  left: 10px;
+}
+.monster-eye.right {
+  right: 10px;
+}
+.monster-mouth {
+  width: 18px;
+  height: 6px;
+  border-radius: 0 0 18px 18px;
+  background: none;
+  border-bottom: 3px solid #222;
+  position: absolute;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+}
