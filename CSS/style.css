@@ -28,26 +28,22 @@
 h1 {
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 30px;
+  margin-bottom: 8px;
 }
 h2 {
   color: black;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   margin-bottom: 10px;
-}
-h3 {
-  color: #fff;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-  margin-bottom: 10px;
-}
+} 
 .game-info {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.1);
   gap: 32px;
-  margin: 16px 0;
+  margin: 4px 0 8px 0;
   font-size: 1.2em;
   font-weight: bold;
   text-align: center;
@@ -62,16 +58,19 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 30px auto;
+  margin: 5px auto;
 }
 
 .whack-img {
   width: 150px;   /* Adjust size as needed */
   height: 150px;  /* Adjust size as needed */
   margin: 0 20px;
+  border-radius: 100%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
 }
 .controls {
-            margin-bottom: 20px;
+            margin-bottom: 5px;
             display: flex;
             gap: 5px;
         }
@@ -80,7 +79,7 @@ button#startButton,
 button#resetButton {
   font-size: 0.9em;
   padding: 6px 16px;
-  border-radius: 6px;
+  border-radius: 1px;
 }       
 .button-row {
   display: flex;
@@ -162,8 +161,13 @@ button:hover {
         }
 
 .monster:hover {
-  transform: scale(1.1);      }
+  transform: scale(1.1);
+  animation: popUp 0.5s ease-in-out;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);}
 
+  .monster-whacked {
+    animation: whack 0.5s ease-in-out;
+  }
 
 .level-1 { background: linear-gradient(45deg, #FFD700, #FFA500); }
 .level-2 { background: linear-gradient(45deg, #FF6B6B, #EE5A24); }
