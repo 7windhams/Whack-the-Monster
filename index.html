@@ -1,32 +1,41 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
-    <title>Whack the Monster</title>
-
+    
+<title>Whack-a-Monster Game</title>
 </head>
-<body>
-  <h1>Whack-a-Monster</h1>
-  <div class="scoreboard">
-    <span>Score: <span id="score">0</span></span>
-    <span>Level: <span id="level">1</span></span>
-  </div>
-  <div class="game-board" id="gameBoard"></div>
-  <button id="startButton">Start</button>
-  <button id="resetButton">Reset</button>
-  <div class="monster-container" id="monsterContainer"></div>
-  <div class="game-over" id="gameOver" style="display: none;">
-      <h2>Game Over!</h2>
-      <p>Your final score is: <span id="finalScore"></span></p>
-      <button id="playAgainButton">Play Again</button>
-  </div>
-  <script src="JS/app.js"></script>
+    <body>
+        <h1>🎯 Whack-a-Monster Game 🎯</h1>
+        <div class="button-row">
+        <button id="startButton" class="btn btn-danger">Start Game</button>
+        <button id="resetButton" class="btn btn-primary">Reset Game</button>
+    </div><div class="level-indicator">
+        <span id="hitsNeeded">10</span> monsters to advance to the next level!
+        <br><span style="font-size: 12px; opacity: 0.7;">Background changes with each level!</span>
+    </div> 
+
+    <p>Click on the monsters to score points!</p>   
+        <div class="game-info">
+            <div>Score: <span id="score">0</span></div>
+            <div>Level: <span id="level">1</span></div>
+            <div>Speed: <span id="speedDisplay">1000ms</span></div>
+            
+
+    <div class="game-container">
+  <img src="IIMAGES/whack.png" alt="Whack Left" class="whack-img left" style="width: 250px; height: 250px;">
+  <div id="gameBoard"></div>    
+  <img src="IIMAGES/whack.png" alt="Whack Right" class="whack-img right" style="width: 250px; height: 250px;">
+</div>     
+    
+    
+    <div id="gameOver" class="game-over" style="display: none;">
+        <h2>Congratulations! 🎉</h2>
+        <p>You've completed all 10 levels!</p>
+        <p>Final Score: <span id="finalScore">0</span></p>
+  <script src="CSS/JS/app.js"></script>
 </body>
 </html>
-    
-    
-
-

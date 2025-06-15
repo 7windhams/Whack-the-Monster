@@ -1,118 +1,199 @@
-body {
-  font-family: 'Arial', sans-serif;
+
+ body {
+  font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #222;
-  color: red;
-}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #581e92 100%);
+  min-height: 100vh;
+  margin: 0;
+  color: white;
+  transition: background 0.5s ease;
+        }
+
+        /* Level-specific background colors */
+.level-1-bg { background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: #333; }
+.level-2-bg { background: linear-gradient(135deg, #FF6B6B 0%, #EE5A24 100%); color: white; }
+.level-3-bg { background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%); color: white; }
+.level-4-bg { background: linear-gradient(135deg, #A8E6CF 0%, #88D8A3 100%); color: #333; }
+.level-5-bg { background: linear-gradient(135deg, #FFB347 0%, #FFCC5C 100%); color: #333; }
+.level-6-bg { background: linear-gradient(135deg, #B19CD9 0%, #C44569 100%); color: white; }
+.level-7-bg { background: linear-gradient(135deg, #74B9FF 0%, #0984E3 100%); color: white; }
+.level-8-bg { background: linear-gradient(135deg, #FD79A8 0%, #E84393 100%); color: white; }
+.level-9-bg { background: linear-gradient(135deg, #6C5CE7 0%, #A29BFE 100%); color: white; }
+.level-10-bg { background: linear-gradient(135deg, #00B894 0%, #00CEC9 100%); color: white; }
 
 h1 {
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   margin-top: 20px;
+  margin-bottom: 10px;
 }
-
-.scoreboard {
-  margin: 20px;
-  font-size: 1.2em;
+h2 {
+  color: black;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
 }
-
-.game-board {
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-gap: 15px;
+h3 {
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+}
+.game-info {
+  display: flex;
   justify-content: center;
-  margin-top: 30px;
-  background-color: #fbc02d;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  margin: 16px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
 }
-
-.hole {
-  width: 100px;
-  height: 100px;
-  background-color: #444;
-  border-radius: 10px;
-  position: relative;
-  cursor: pointer;
+.game-info span {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
-.monster {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  transform: scale(0);
-  transition: transform 0.3s ease-in-out, background-color 0.3s;
+.game-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 30px auto;
 }
 
-.monster.show {
-  transform: scale(1);
+.whack-img {
+  width: 150px;   /* Adjust size as needed */
+  height: 150px;  /* Adjust size as needed */
+  margin: 0 20px;
+}
+.controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 5px;
+        }
+.button-row button,
+button#startButton,
+button#resetButton {
+  font-size: 0.9em;
+  padding: 6px 16px;
+  border-radius: 6px;
+}       
+.button-row {
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  gap: 10px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+        }
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-/* Monster color changes by level */
-.monster.level-1 {
-  background-color: #c62828; /* red */
-}
-.monster.level-2 {
-  background-color: #388e3c; /* green */
-}
-.monster.level-3 {
-  background-color: #fbc02d; /* yellow */
-}
-.monster.level-4 {
-  background-color: #8e24aa; /* purple */
-}
-/* Add more as needed */
+.level-1-btn { background: #4CAF50; color: white; }
+.level-2-btn { background: #FF9800; color: white; }
+.level-3-btn { background: #F44336; color: white; }
+.level-4-btn { background: #9C27B0; color: white; }
+.level-5-btn { background: #3F51B5; color: white; }
+.level-6-btn { background: #00BCD4; color: white; }
+.level-7-btn { background: #8BC34A; color: white; }
+.level-8-btn { background: #FF5722; color: white; }
+.level-9-btn { background: #795548; color: white; }
+.level-10-btn { background: #607D8B; color: white; }
 
-/* Button color changes by level */
-.level-1-btn {
-  background-color: #c62828 !important;
-  color: #fff !important;
-}
-.level-2-btn {
-  background-color: #388e3c !important;
-  color: #fff !important;
-}
-.level-3-btn {
-  background-color: #fbc02d !important;
-  color: #222 !important;
-}
-.level-4-btn {
-  background-color: #8e24aa !important;
-  color: #fff !important;
-}
-/* Add more as needed */
-
-/* Optional: Monster face for fun */
-.monster-face {
-  width: 40px;
-  height: 40px;
+#gameBoard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  width: 90%;
+  max-width: 800px;
   position: relative;
-  margin: 0 auto;
 }
-.monster-eye {
-  width: 8px;
-  height: 8px;
-  background: #fff;
+.hole {
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, black#8B4513 0%, #654321 100%);
   border-radius: 50%;
-  position: absolute;
-  top: 12px;
+  position: relative;
+  cursor: pointer;
+  border: 4px solid #5D4037;
+  box-shadow: inset 0 8px 16px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
 }
-.monster-eye.left {
-  left: 10px;
+.hole:hover {
+  transform: scale(1.05);
+  box-shadow: inset 0 12px 24px rgba(0,0,0,0.4);
 }
-.monster-eye.right {
-  right: 10px;
-}
-.monster-mouth {
-  width: 18px;
-  height: 6px;
-  border-radius: 0 0 18px 18px;
-  background: none;
-  border-bottom: 3px solid #222;
+.monster {  
+  border-radius: 50%;
+  background: #ff4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
   position: absolute;
   left: 50%;
-  bottom: 8px;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #333;
 }
+        
+
+ @keyframes popUp {
+  0% { transform: scale(0) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(180deg); }
+  100% { transform: scale(1) rotate(360deg); }
+        }
+
+.monster:hover {
+  transform: scale(1.1);      }
+
+
+.level-1 { background: linear-gradient(45deg, #FFD700, #FFA500); }
+.level-2 { background: linear-gradient(45deg, #FF6B6B, #EE5A24); }
+.level-3 { background: linear-gradient(45deg, #4ECDC4, #44A08D); }
+.level-4 { background: linear-gradient(45deg, #A8E6CF, #88D8A3); }
+.level-5 { background: linear-gradient(45deg, #FFB347, #FFCC5C); }
+.level-6 { background: linear-gradient(45deg, #B19CD9, #C44569); }
+.level-7 { background: linear-gradient(45deg, #74B9FF, #0984E3); }
+.level-8 { background: linear-gradient(45deg, #FD79A8, #E84393); }
+.level-9 { background: linear-gradient(45deg, #6C5CE7, #A29BFE); }
+.level-10 { background: linear-gradient(45deg, #00B894, #00CEC9); }
+
+.level-indicator {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+  opacity: 0.8;
+ }
+ .whack-img {
+  width: 140px;   /* Increase this value for larger images */
+  height: auto;
+  margin: 0 20px;
+}
+.game-over {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+} 
+    
