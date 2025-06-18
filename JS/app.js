@@ -43,11 +43,15 @@ monster.style.fontSize = '50px';
 hole.appendChild(monster);
 
 monster.addEventListener('click', () => {
+  console.log("Monster clicked! Score before:", score);
+
   if (!isGameRunning) return; 
     score++;
     hitsThisLevel++;
     scoreDisplay.textContent = score;
     hole.innerHTML = '';
+    
+
                 
     // Update hits needed display
     const remaining = HITS_PER_LEVEL - hitsThisLevel;
@@ -88,9 +92,16 @@ function checkLevelUp() {
         }
 
 function startGame() {
+  console.log("Game started!");
+let score = 0;
+console.log("Initial score:", score);
+  console.log("Initial level:", level);
+  console.log("Initial speed:", speed);
+
   if (isGameRunning) return;
             
   isGameRunning = true;
+
     gameOverDiv.style.display = 'none';
             
   clearInterval(gameInterval);
@@ -167,3 +178,5 @@ document.getElementById('resetButton').addEventListener('click', resetGame);
         createHoles();
         updateButtonColors();
         scoreDisplay.textContent = score;
+        levelDisplay.textContent = level;
+        
